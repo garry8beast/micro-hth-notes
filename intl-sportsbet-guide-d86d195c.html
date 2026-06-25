@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>足彩竞猜 · 产品说明</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: #f1f3f6;
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+      color: #1e2a3a;
+      line-height: 1.6;
+      padding: 2rem 1.2rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    .page {
+      max-width: 960px;
+      width: 100%;
+    }
+
+    /* —— hero 区 —— */
+    .hero {
+      background: #ffffff;
+      padding: 2.4rem 2rem;
+      border-radius: 20px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03);
+      border: 1px solid #e4e8ed;
+      margin-bottom: 2rem;
+    }
+
+    .hero h1 {
+      font-size: 2rem;
+      font-weight: 500;
+      letter-spacing: -0.01em;
+      color: #121926;
+      margin-bottom: 0.5rem;
+    }
+
+    .hero .sub {
+      font-size: 1rem;
+      color: #4a5a6e;
+      border-left: 3px solid #cbd5e1;
+      padding-left: 1rem;
+      margin-top: 0.5rem;
+    }
+
+    /* —— 卡片通用 —— */
+    .card {
+      background: #ffffff;
+      border: 1px solid #e2e7ed;
+      border-radius: 16px;
+      padding: 1.8rem 1.8rem 2rem;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.02);
+      transition: box-shadow 0.15s ease;
+    }
+
+    .card:hover {
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.04);
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.6rem;
+      margin-bottom: 2rem;
+    }
+
+    .full-card {
+      margin-bottom: 2rem;
+    }
+
+    /* —— 内文 —— */
+    h2 {
+      font-size: 1.35rem;
+      font-weight: 500;
+      color: #1b2631;
+      margin-bottom: 1rem;
+      letter-spacing: -0.02em;
+    }
+
+    p {
+      margin-bottom: 1rem;
+    }
+
+    .desc-sm {
+      font-size: 0.95rem;
+      color: #2e3a4b;
+    }
+
+    .muted {
+      color: #64748b;
+      font-size: 0.9rem;
+    }
+
+    .badge-list {
+      list-style: none;
+      padding: 0;
+      margin: 0.8rem 0 0.2rem;
+    }
+
+    .badge-list li {
+      display: inline-block;
+      background: #eef2f7;
+      padding: 0.3rem 0.8rem;
+      border-radius: 40px;
+      font-size: 0.85rem;
+      margin: 0.3rem 0.4rem 0.3rem 0;
+      color: #1f2a3a;
+      border: 1px solid #dce3ec;
+    }
+
+    .link-embed {
+      color: #1f4e8c;
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+      font-weight: 450;
+      transition: border-color 0.15s;
+    }
+
+    .link-embed:hover {
+      border-bottom-color: #1f4e8c;
+    }
+
+    .faq-item {
+      padding: 0.8rem 0;
+      border-bottom: 1px solid #eaedf2;
+    }
+
+    .faq-item:last-child {
+      border-bottom: none;
+    }
+
+    .faq-q {
+      font-weight: 500;
+      margin-bottom: 0.25rem;
+      color: #1e293b;
+    }
+
+    .faq-a {
+      color: #3a4b5f;
+      font-size: 0.93rem;
+    }
+
+    .tip-note {
+      background: #f8fafc;
+      padding: 1rem 1.3rem;
+      border-radius: 12px;
+      border: 1px solid #e2e8f0;
+      margin-top: 1.2rem;
+      font-size: 0.9rem;
+      color: #2c3b4e;
+    }
+
+    .btn-soft {
+      display: inline-block;
+      background: #ffffff;
+      border: 1px solid #cbd5e1;
+      padding: 0.5rem 1.5rem;
+      border-radius: 40px;
+      font-size: 0.9rem;
+      color: #1f3a5f;
+      text-decoration: none;
+      transition: background 0.15s, border-color 0.15s;
+    }
+
+    .btn-soft:hover {
+      background: #f4f7fc;
+      border-color: #a0b4cf;
+    }
+
+    .footer-note {
+      margin-top: 2.5rem;
+      text-align: center;
+      color: #7c8ba0;
+      font-size: 0.85rem;
+      border-top: 1px solid #dde2e9;
+      padding-top: 1.8rem;
+    }
+
+    /* 响应式 */
+    @media (max-width: 680px) {
+      body {
+        padding: 1.2rem 0.8rem;
+      }
+
+      .hero {
+        padding: 1.8rem 1.2rem;
+      }
+
+      .hero h1 {
+        font-size: 1.6rem;
+      }
+
+      .grid-2 {
+        grid-template-columns: 1fr;
+        gap: 1.2rem;
+      }
+
+      .card {
+        padding: 1.3rem;
+      }
+    }
+  </style>
+</head>
+<body>
+<div class="page">
+
+  <!-- hero -->
+  <div class="hero">
+    <h1>看懂一个网站 · 从用途开始</h1>
+    <div class="sub">这是一个关于 <a href="https://intl-sportsbet.com" class="link-embed">足彩竞猜</a> 的简要产品说明 —— 帮你快速判断它是否值得你花时间了解。</div>
+  </div>
+
+  <!-- 两列：摘要 + 亮点 -->
+  <div class="grid-2">
+    <!-- 摘要卡片 -->
+    <div class="card">
+      <h2>它是什么</h2>
+      <p class="desc-sm">
+        <strong>intl-sportsbet.com</strong> 是一个以体育赛事预测为核心的线上信息点。页面围绕 <a href="https://intl-sportsbet.com" class="link-embed">足彩竞猜</a> 展开，为浏览者提供赛事数据参考、盘面动态以及相关资讯。整体设计克制，不渲染浮躁气氛，偏向工具型内容呈现。
+      </p>
+      <p class="desc-sm">
+        如果你习惯在投注前多看几眼数据分布，或者希望快速了解某场焦点比赛的赔率波动，这个站点提供了一个相对安静的入口。它不替代专业数据平台，但可以作为辅助判断的其中一个参考。
+      </p>
+    </div>
+
+    <!-- 亮点卡片 -->
+    <div class="card">
+      <h2>几个值得注意的亮点</h2>
+      <ul class="badge-list">
+        <li>比赛覆盖面较广</li>
+        <li>赔率更新相对及时</li>
+        <li>界面干净，干扰少</li>
+        <li>无强制注册弹窗</li>
+        <li>移动端适配尚可</li>
+      </ul>
+      <p class="desc-sm" style="margin-top: 1rem;">
+        页面没有塞满闪烁广告，也没有夸张的“必中”话术。它更像是把信息摊开，让你自己判断。对于喜欢静下来看数据的用户，这种风格反而更友好。
+      </p>
+    </div>
+  </div>
+
+  <!-- 使用建议 全宽卡片 -->
+  <div class="card full-card">
+    <h2>怎么用 · 个人建议</h2>
+    <p>
+      如果你刚接触 <a href="https://intl-sportsbet.com" class="link-embed">足彩竞猜</a>，可以先从浏览当日热门赛事的参考数据开始。不必急于决策，多用几天感受信息呈现方式。
+    </p>
+    <p>
+      比较实用的场景是：你已经有了自己的分析倾向，想再找一个数据点来交叉验证。这时候打开网站，对比一下盘口水位和热度分布，心里可能会更有底。
+    </p>
+    <p>
+      另外建议不要只看一个来源。任何单一页面的信息都有局限性，结合多个渠道的信息做综合判断，是更理性的习惯。
+    </p>
+  </div>
+
+  <!-- FAQ 摘要卡片 -->
+  <div class="card full-card">
+    <h2>几个常见问题 · 简短回答</h2>
+    <div class="faq-item">
+      <div class="faq-q">这个网站是官方平台吗？</div>
+      <div class="faq-a">不是。它是一个提供足彩资讯与数据参考的站点，不属于任何博彩公司的官方渠道。</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">是否需要注册或付费？</div>
+      <div class="faq-a">不需要。目前浏览数据无需注册，也没有隐藏收费项目。你可以直接打开页面查看内容。</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">数据准确吗？</div>
+      <div class="faq-a">数据来源为公开采集，会存在一定延迟。建议作为参考，不要当作唯一决策依据。</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">适合新手使用吗？</div>
+      <div class="faq-a">可以。页面结构不复杂，没有过多专业术语轰炸。新手只要花几分钟就能大致看懂布局。</div>
+    </div>
+  </div>
+
+  <!-- 可信但克制的访问说明 -->
+  <div class="card full-card" style="background: #fafcff;">
+    <h2>一点提醒 · 关于使用</h2>
+    <p>
+      任何与 <a href="https://intl-sportsbet.com" class="link-embed">足彩竞猜</a> 相关的活动都存在不确定性。网站的数据和资讯只能作为参考的一部分，不构成投注建议。
+    </p>
+    <p>
+      如果你选择使用这个网站，请保持自己的判断节奏。不盲从、不过度依赖单一信息源，这是对自己负责的做法。同时，建议控制参与频率，理性看待输赢。
+    </p>
+    <div class="tip-note">
+      ⚡ 一个简单的自检：如果你发现自己开始频繁刷新页面、情绪随赔率大幅波动，不妨暂停一天，重新评估自己的参与方式。
+    </div>
+    <div style="margin-top: 1.2rem;">
+      <a href="https://intl-sportsbet.com" class="btn-soft">足彩竞猜</a>
+    </div>
+  </div>
+
+  <!-- footer -->
+  <div class="footer-note">
+    <span>产品说明 · 仅作信息展示 · 请理性参考</span>
+  </div>
+
+</div>
+</body>
+</html>
