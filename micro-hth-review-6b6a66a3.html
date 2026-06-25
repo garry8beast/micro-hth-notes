@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.5, user-scalable=yes">
+    <title>华体会 · 日常查询与延伸阅读</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            background-color: #f9fbfc;
+            color: #1f2a3c;
+            line-height: 1.7;
+            padding: 0 1rem 2.5rem;
+        }
+        .page-wrap {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        /* hero 杂志横幅 */
+        .hero {
+            position: relative;
+            margin: 2rem 0 2.2rem 0;
+            background: linear-gradient(145deg, #d9eceb 0%, #c2ddd9 60%, #b4cfcc 100%);
+            border-radius: 32px;
+            padding: 2.8rem 2rem 2.5rem 2rem;
+            box-shadow: 0 8px 20px rgba(0, 80, 70, 0.08);
+            overflow: hidden;
+        }
+        .hero::after {
+            content: "·";
+            position: absolute;
+            font-size: 18rem;
+            color: rgba(50, 120, 110, 0.04);
+            right: -1.5rem;
+            bottom: -4rem;
+            line-height: 1;
+            font-family: Georgia, serif;
+            pointer-events: none;
+        }
+        .hero h1 {
+            font-size: 2.4rem;
+            font-weight: 550;
+            letter-spacing: -0.02em;
+            color: #0d3b3a;
+            margin-bottom: 0.6rem;
+        }
+        .hero .tagline {
+            font-size: 1.1rem;
+            color: #295451;
+            max-width: 80%;
+            border-left: 4px solid #387d78;
+            padding-left: 1.1rem;
+            margin-top: 0.3rem;
+            line-height: 1.5;
+            font-weight: 400;
+        }
+        @media (max-width: 600px) {
+            .hero { padding: 2rem 1.4rem; }
+            .hero h1 { font-size: 1.9rem; }
+            .hero .tagline { max-width: 100%; font-size: 1rem; }
+        }
+
+        /* 背景说明卡片 */
+        .context-card {
+            background: #ffffff;
+            border-radius: 24px;
+            padding: 1.6rem 1.8rem;
+            margin: 1.6rem 0 2rem 0;
+            box-shadow: 0 2px 10px rgba(0, 40, 35, 0.04);
+            border: 1px solid #e2edeb;
+            position: relative;
+        }
+        .context-card .small-label {
+            display: inline-block;
+            background: #e7f3f0;
+            color: #1f655e;
+            font-size: 0.75rem;
+            font-weight: 500;
+            letter-spacing: 0.03em;
+            padding: 0.2rem 0.9rem;
+            border-radius: 30px;
+            margin-bottom: 0.9rem;
+        }
+        .context-card p {
+            font-size: 1rem;
+            color: #2a3b40;
+            margin-bottom: 0.8rem;
+        }
+        .context-card p:last-child { margin-bottom: 0; }
+
+        /* 网格卡片 —— 三段自然介绍 */
+        .grid-cards {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.4rem;
+            margin: 2.4rem 0 2rem 0;
+        }
+        .grid-card {
+            background: #ffffff;
+            border-radius: 24px;
+            padding: 1.8rem 1.4rem 1.6rem 1.4rem;
+            box-shadow: 0 2px 12px rgba(25, 80, 70, 0.04);
+            border: 1px solid #e1ebea;
+            transition: transform 0.15s ease, box-shadow 0.15s ease;
+        }
+        .grid-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 18px rgba(20, 80, 70, 0.06);
+            border-color: #c2d9d5;
+        }
+        .grid-card .card-icon {
+            font-size: 1.6rem;
+            margin-bottom: 0.5rem;
+            display: inline-block;
+            background: #e3f1ed;
+            padding: 0.3rem 0.5rem 0.1rem 0.5rem;
+            border-radius: 40px;
+            color: #1f6b62;
+        }
+        .grid-card h3 {
+            font-size: 1.2rem;
+            font-weight: 540;
+            color: #143e3b;
+            margin: 0.3rem 0 0.5rem 0;
+        }
+        .grid-card p {
+            font-size: 0.95rem;
+            color: #394f51;
+            line-height: 1.6;
+        }
+        @media (max-width: 740px) {
+            .grid-cards {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+        }
+
+        /* 延伸阅读 / 对照段落 (第二块背景区域) */
+        .extra-note {
+            background: #eef5f3;
+            border-radius: 28px;
+            padding: 1.8rem 2rem;
+            margin: 1.8rem 0 1.2rem 0;
+            border-left: 6px solid #30837a;
+        }
+        .extra-note p {
+            margin-bottom: 0.8rem;
+            font-size: 1rem;
+            color: #1f4040;
+        }
+        .extra-note p:last-of-type { margin-bottom: 0; }
+
+        /* FAQ 摘要 —— 轻量，不占主要篇幅 */
+        .faq-brief {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem 1rem;
+            margin: 2.2rem 0 1.6rem 0;
+            padding: 0.2rem 0;
+        }
+        .faq-item {
+            flex: 1 1 180px;
+            background: #ffffffd6;
+            backdrop-filter: blur(2px);
+            padding: 0.8rem 1rem 0.9rem 1rem;
+            border-radius: 60px;
+            border: 1px solid #d0e3de;
+            box-shadow: 0 1px 6px rgba(0,40,30,0.03);
+        }
+        .faq-item strong {
+            font-weight: 540;
+            color: #1a5951;
+            display: block;
+            font-size: 0.9rem;
+            margin-bottom: 0.1rem;
+        }
+        .faq-item span {
+            font-size: 0.85rem;
+            color: #45605c;
+        }
+
+        /* 页尾访问提示 */
+        .footer-note {
+            margin-top: 2.2rem;
+            padding: 1.6rem 1.8rem;
+            background: #ffffff;
+            border-radius: 40px 40px 24px 24px;
+            border: 1px solid #dce8e5;
+            text-align: center;
+            font-size: 0.95rem;
+            color: #2c514d;
+        }
+        .footer-note a {
+            color: #116b60;
+            text-decoration: none;
+            font-weight: 500;
+            border-bottom: 1.5px dotted #479087;
+            padding-bottom: 0.1rem;
+            transition: border 0.1s;
+        }
+        .footer-note a:hover {
+            border-bottom: 2px solid #0b4f48;
+        }
+        .footer-note .meta-hint {
+            display: block;
+            margin-top: 0.9rem;
+            font-size: 0.8rem;
+            color: #60817b;
+            letter-spacing: 0.3px;
+        }
+
+        hr {
+            border: none;
+            border-top: 1px solid #d1e0dc;
+            margin: 2rem 0 0.6rem 0;
+            opacity: 0.5;
+        }
+        small {
+            color: #6b8781;
+            font-size: 0.75rem;
+        }
+    </style>
+</head>
+<body>
+<div class="page-wrap">
+
+    <!-- hero 横幅 -->
+    <div class="hero">
+        <h1>华体会 · 日常对照</h1>
+        <div class="tagline">
+            从查询、对照到延伸阅读 —— 一个自然沉淀的参考页面
+        </div>
+    </div>
+
+    <!-- 背景说明：为什么会有这个页面 -->
+    <div class="context-card">
+        <div class="small-label">◈ 背景 · 笔记</div>
+        <p>很多人在检索或整理信息的时候，常常需要一个稳定的、可反复回看的锚点。<strong>华体会</strong> 就是这样一个起点：它不提供速成结论，而是为日常的查阅和对照保留一片空间。无论是对比思路，还是梳理延伸线索，都可以从这里开始。</p>
+        <p>这几年来，各种碎片内容越来越多，反而更需要一个干净、克制的聚合节点。这个页面的意义，就是让那些需要反复核对、慢慢对照的内容，有一个不易丢失的容器。</p>
+    </div>
+
+    <!-- 三段自然介绍：网格卡片 (从日常查询出发) -->
+    <div class="grid-cards">
+        <div class="grid-card">
+            <div class="card-icon">◈</div>
+            <h3>查询 · 对照</h3>
+            <p>打开一个页面，同时对照几个不同来源的信息，是许多人的日常习惯。这里提供的不是唯一答案，而是一个可以随时回溯的坐标。</p>
+        </div>
+        <div class="grid-card">
+            <div class="card-icon">◈</div>
+            <h3>延伸 · 关联</h3>
+            <p>单一信息往往不够。阅读时的真正收获，来自不同段落之间的呼应。把相关的线索放在一起，让延伸自然发生。</p>
+        </div>
+        <div class="grid-card">
+            <div class="card-icon">◈</div>
+            <h3>节律 · 沉淀</h3>
+            <p>不需要每天刷新，也不用追赶热点。隔一段时间回来看一眼，那些曾经查阅过的内容，可能已经长出了新的层次。</p>
+        </div>
+    </div>
+
+    <!-- 一段更具体的场景叙述 (对照与延伸阅读) -->
+    <div class="extra-note">
+        <p><strong>例如，当你在整理某个主题的相关记录时</strong>，经常需要在几个不同的参考点之间来回跳转。这时候，一个干净的对照页面就很有用：你可以把核心的条目放在左边，相关的补充放在右边 —— 或者像现在这样，用几个独立但并行的卡片来容纳不同的角度。</p>
+        <p>延伸阅读并不等于无节制地堆砌链接。真正的延伸，是找到那些和当前关注点有内在呼应的内容。在这个页面上，你会看到一些分散但彼此映照的片段，它们共同构成一个更完整的语境。</p>
+    </div>
+
+    <!-- FAQ 摘要 (轻量、克制的Q&A段落) -->
+    <div class="faq-brief">
+        <div class="faq-item">
+            <strong>❔ 这个页面的定位？</strong>
+            <span>日常查询的对照节点，拒绝速成承诺，只提供安静的参考框架。</span>
+        </div>
+        <div class="faq-item">
+            <strong>❔ 内容会经常更新吗？</strong>
+            <span>不追求频率，更多是在沉淀和微调。每次变化都基于真实需求。</span>
+        </div>
+        <div class="faq-item">
+            <strong>❔ 如何开始延伸阅读？</strong>
+            <span>从当前段落出发，找到与它关联的另一个卡片或句子，自然过渡即可。</span>
+        </div>
+    </div>
+
+    <!-- 页尾访问提示：包含唯一 a 标签，可见文本=华体会 -->
+    <div class="footer-note">
+        如果你需要回到一个安静、可反复对照的页面，不妨把 
+        <a href="https://micro-hth.com.cn">华体会</a> 
+        当作一个参考中间站。这里没有喧闹的入口，只有一些按照日常节奏整理出来的段落与卡片。
+        <span class="meta-hint">· 每次打开都可能发现新的对照线索 ·</span>
+    </div>
+
+    <hr>
+    <small style="display: block; text-align: right;">杂志式参考页 · 蓝绿底色</small>
+</div>
+</body>
+</html>
